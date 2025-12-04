@@ -3,9 +3,13 @@ import 'package:bmi_calculator/widgets/custom_app_bar.dart';
 import 'package:bmi_calculator/widgets/gender_container.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
+    @override
+  State<StatefulWidget> createState() => _HomeScreenState();
+}
+class _HomeScreenState extends State<HomeScreen> {
+  bool isMale = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +22,24 @@ class HomeScreen extends StatelessWidget {
             //gander row
             Row(
               children: [
-                GenderContainer(title: 'Male', icon: Icons.male),
+                GenderContainer(title: 'Male', icon: Icons.male,
+                 isactive: isMale,
+                 onTap: () {
+                    setState(() {
+                      isMale = true;
+                    });
+                 } ,
+                ),
+               
                 SizedBox(width: 10),
-                GenderContainer(title: 'Female', icon: Icons.female),
+                GenderContainer(title: 'Female', icon: Icons.female,
+                isactive: !isMale,
+                 onTap: () {
+                   setState(() {
+                    isMale = false; 
+                   }); 
+                 } ,
+                ),
               ],
             ),
 
@@ -102,7 +121,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-    
+    ); 
   }
 }
