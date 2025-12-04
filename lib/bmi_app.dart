@@ -6,6 +6,12 @@ class BmiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen());
+    return MaterialApp(
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Color(0xff1c2135),
+      ),
+      home: HomeScreen(),
+    );
   }
 }
