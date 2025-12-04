@@ -9,7 +9,7 @@ class CounterContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 15),
+        padding: EdgeInsets.symmetric(vertical: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: Color(0xff333244),
@@ -17,14 +17,14 @@ class CounterContainer extends StatelessWidget {
         child: Column(
           children: [
             Text(title,style: TextStyle(
-              fontSize: 20,
+              fontSize: 40,
               fontWeight: FontWeight.w700,
             ),),
-            SizedBox(height: 5),
+            SizedBox(height: 10),
             Text(value.toString()
             ,style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
+              fontSize: 40,
+              fontWeight: FontWeight.w700,
             ),),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -44,6 +44,7 @@ class CounterContainer extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: Icon(Icons.add),
+                  
                 ),
               ],
             ),

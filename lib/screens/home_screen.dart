@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-          spacing: 10,
+          spacing: 20,
           children: [
             //gander row
             Row(
@@ -32,11 +32,11 @@ class HomeScreen extends StatelessWidget {
                 color: Color(0xff333244),
               ),
               child: Column(
-                spacing: 10,
+                spacing: 20,
                 children: [
                   Text(
                     "Height",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
                   ),
                   Text.rich(
                     TextSpan(
