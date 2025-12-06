@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               children: [
                 GenderContainer(title: 'Male', icon: Icons.male,
-                 isactive: isMale,
+                 isActive: isMale,
                  onTap: () {
                     setState(() {
                       isMale = true;
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
                
                 SizedBox(width: 10),
                 GenderContainer(title: 'Female', icon: Icons.female,
-                isactive: !isMale,
+                isActive: !isMale,
                  onTap: () {
                    setState(() {
                     isMale = false; 
