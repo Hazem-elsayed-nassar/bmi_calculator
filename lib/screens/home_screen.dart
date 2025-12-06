@@ -10,6 +10,9 @@ class HomeScreen extends StatefulWidget {
 }
 class _HomeScreenState extends State<HomeScreen> {
   bool isMale = true;
+  double height = 150; 
+  int weight = 67; 
+  int age = 33; 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: "150",
+                          text:  height.toStringAsFixed(1),
                           style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.w700,
@@ -78,8 +81,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Slider(
-                    value: .7,
-                    onChanged: (value) {},
+                    value: height ,
+                    min: 100,
+                    max: 220,
+                    onChanged: (value) => setState(() => height = value),
                     activeColor: Color(0xffE83D67),
                     inactiveColor: Color(0xffFFFFFF),
                     thumbColor: Color(0xffE83D67),
@@ -93,12 +98,16 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 CounterContainer(
                   title: 'Weight',
-                  value: 67,  
+                  value: weight,
+                  onDecrement: () => setState(() => weight--),
+                  onIncrement: () => setState(() => weight++),
                 ),
                 SizedBox(width: 10),
                 CounterContainer(
                   title: 'Age',
-                  value: 33,
+                  value: age,
+                  onDecrement: () => setState(() => age--),
+                  onIncrement: () => setState(() => age++),
                 ),
                 
               ],

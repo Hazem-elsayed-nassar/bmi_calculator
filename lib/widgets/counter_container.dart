@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 class CounterContainer extends StatelessWidget {
   final String title;
   final int value;
-  const CounterContainer({super.key,required this.title, required this.value});
+   final VoidCallback? onIncrement;
+  final VoidCallback? onDecrement;
+
+  const CounterContainer({super.key,required this.title, required this.value, this.onIncrement, this.onDecrement});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class CounterContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 FloatingActionButton.small(
-                  onPressed: () {},
+                  onPressed: onDecrement,
                   backgroundColor: Color(0xff888C9E),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
@@ -38,7 +41,7 @@ class CounterContainer extends StatelessWidget {
                   child: Icon(Icons.remove),
                 ),
                 FloatingActionButton.small(
-                  onPressed: () {},
+                  onPressed: onIncrement,
                   backgroundColor: Color(0xff888C9E),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(100),
