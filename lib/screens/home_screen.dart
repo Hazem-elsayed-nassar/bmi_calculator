@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isMale = true;
-  double height = 150;
+  int height = 150;
   int weight = 67;
   int age = 33;
   @override
@@ -88,10 +88,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Slider(
-                    value: height,
+                    value: height.toDouble(),
                     min: 100,
                     max: 220,
-                    onChanged: (value) => setState(() => height = value),
+                    onChanged: (value) => setState(() => height = value.toInt()),
                     activeColor: Color(0xffE83D67),
                     inactiveColor: Color(0xffFFFFFF),
                     thumbColor: Color(0xffE83D67),
