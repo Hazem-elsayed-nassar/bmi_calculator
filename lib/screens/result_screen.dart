@@ -22,9 +22,9 @@ class ResultScreen extends StatelessWidget {
   }
 
   String get resultDescription {
-    if (bmi < 18.5) return "You are Underweight, You need to eat more.";
-    if (bmi < 25) return "You Have a Normal Body Weight, Good Job.";
-    if (bmi < 30) return "You are Overweight, Try to exercise more.";
+    if (bmi <=18.5) return "You are Underweight, You need to eat more.";
+    if (bmi <= 25) return "You Have a Normal Body Weight, Good Job.";
+    if (bmi <= 30) return "You are Overweight, Try to exercise more.";
     return "Your weight is too high, Consult a doctor.";
   }
 
