@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/widgets/custom_nav_bat.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_app_bar.dart';
 
@@ -28,28 +29,31 @@ class ResultScreen extends StatelessWidget {
   }
 
   Color get resultColor {
-    if (bmi < 18.5) return Colors.yellowAccent;
-    if (bmi < 25) return Colors.greenAccent;
-    if (bmi < 30) return Colors.orangeAccent;
+    if (bmi < 18.5) return Colors.red;
+    if (bmi < 25) return Color(0xff21BF73);
+    if (bmi < 30) return Colors.red;
     return Colors.redAccent;
   }
+
+  get bottomNavigationBar => null;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF1A1A2E),
+      backgroundColor: const Color(0xFF1C2135),
       appBar: const CustomAppBar(),
 
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               "Your Result",
               style: TextStyle(
-                fontSize: 35,
+                fontSize: 40,
                 fontWeight: FontWeight.bold,
+                color: Color(0xffffffff),
               ),
             ),
 
@@ -59,7 +63,7 @@ class ResultScreen extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: const Color(0xFF222232),
+                  color: Color(0xff333244),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Column(
@@ -92,38 +96,24 @@ class ResultScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 30),
                     Text(
-                      "Age: $age",
-                      style: const TextStyle(fontSize: 20),
-                    ),
-                    Text(
                       "Gender: ${isMale ? "Male" : "Female"}",
                       style: const TextStyle(fontSize: 20),
                     ),
+                    Text("Age: $age", style: const TextStyle(fontSize: 20)),
                   ],
                 ),
               ),
             ),
 
             const SizedBox(height: 20),
-
-            SizedBox(
-              height: 60,
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pinkAccent,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  "Re - Calculate",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomButtonBar(
+        text: "Re - Calculate",
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }

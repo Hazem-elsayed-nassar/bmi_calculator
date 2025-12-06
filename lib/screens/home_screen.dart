@@ -1,18 +1,21 @@
+import 'package:bmi_calculator/screens/result_screen.dart';
 import 'package:bmi_calculator/widgets/counter_container.dart';
+import 'package:bmi_calculator/widgets/custom_nav_bat.dart';
 import 'package:bmi_calculator/widgets/custom_app_bar.dart';
 import 'package:bmi_calculator/widgets/gender_container.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-    @override
+  @override
   State<StatefulWidget> createState() => _HomeScreenState();
 }
+
 class _HomeScreenState extends State<HomeScreen> {
   bool isMale = true;
-  double height = 150; 
-  int weight = 67; 
-  int age = 33; 
+  double height = 150;
+  int weight = 67;
+  int age = 33;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,23 +28,27 @@ class _HomeScreenState extends State<HomeScreen> {
             //gander row
             Row(
               children: [
-                GenderContainer(title: 'Male', icon: Icons.male,
-                 isActive: isMale,
-                 onTap: () {
+                GenderContainer(
+                  title: 'Male',
+                  icon: Icons.male,
+                  isActive: isMale,
+                  onTap: () {
                     setState(() {
                       isMale = true;
                     });
-                 } ,
+                  },
                 ),
-               
+
                 SizedBox(width: 10),
-                GenderContainer(title: 'Female', icon: Icons.female,
-                isActive: !isMale,
-                 onTap: () {
-                   setState(() {
-                    isMale = false; 
-                   }); 
-                 } ,
+                GenderContainer(
+                  title: 'Female',
+                  icon: Icons.female,
+                  isActive: !isMale,
+                  onTap: () {
+                    setState(() {
+                      isMale = false;
+                    });
+                  },
                 ),
               ],
             ),
@@ -64,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text:  height.toStringAsFixed(1),
+                          text: height.toStringAsFixed(1),
                           style: TextStyle(
                             fontSize: 40,
                             fontWeight: FontWeight.w700,
@@ -81,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Slider(
-                    value: height ,
+                    value: height,
                     min: 100,
                     max: 220,
                     onChanged: (value) => setState(() => height = value),
@@ -109,27 +116,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   onDecrement: () => setState(() => age--),
                   onIncrement: () => setState(() => age++),
                 ),
-                
               ],
             ),
           ],
         ),
       ),
-    bottomNavigationBar:Container(
-        width: double.infinity,
-        height: 80,
-        color: Color(0xffE83D67),
-        child: Center(
-          child: Text(
-            "Calculate",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 32,
-              fontWeight: FontWeight.w600,
+      bottomNavigationBar: BottomButtonBar(
+        text: "Calculate",
+        onPressed: () {
+          double heightInMeters = height / 100;
+          double bmi = weight / (heightInMeters * heightInMeters);
+
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>
+                  ResultScreen(bmi: bmi, age: age, isMale: isMale),
             ),
-          ),
-        ),
+          );
+        },
       ),
-    ); 
+    );
   }
 }
