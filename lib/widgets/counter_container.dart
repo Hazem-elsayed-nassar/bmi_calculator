@@ -27,12 +27,12 @@ class CounterContainer extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700),
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500),
             ),
             SizedBox(height: 10),
             Text(
               value.toString(),
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700),
+              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w500),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

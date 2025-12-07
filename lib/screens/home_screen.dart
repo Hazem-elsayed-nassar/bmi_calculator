@@ -106,14 +106,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 CounterContainer(
                   title: 'Weight',
                   value: weight,
-                  onDecrement: () => setState(() => weight--),
+                  onDecrement: () => setState(() {
+                    if (weight > 1) weight--;
+                  }),
                   onIncrement: () => setState(() => weight++),
                 ),
                 SizedBox(width: 10),
                 CounterContainer(
                   title: 'Age',
                   value: age,
-                  onDecrement: () => setState(() => age--),
+                  onDecrement: () => setState(() {
+                    if (age > 1) age--;
+                  }),
                   onIncrement: () => setState(() => age++),
                 ),
               ],
