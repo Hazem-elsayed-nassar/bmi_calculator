@@ -18,4 +18,4 @@ samples, guidance on mobile development, and a full API reference.
 -![home_screen](assets/images/home_screen.png)
 -![result_screen](assets/images/result_screen.png)
 -[video](https://youtube.com/shorts/jvFmFcSbI1s?feature=share)
--[video](assets\images\result_screen.png)
+-[video](D:\hazem\Projects\BMI_calculator\bmi_calculator\assets\images\result_screen.png)
