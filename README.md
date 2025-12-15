@@ -19,3 +19,4 @@ samples, guidance on mobile development, and a full API reference.
 -![result_screen](assets/images/result_screen.png)
 -[video](https://youtube.com/shorts/jvFmFcSbI1s?feature=share)
 -![video](assets\images\demo.mp4)
+<video controls src="demo.mp4" title="Title"></video>
